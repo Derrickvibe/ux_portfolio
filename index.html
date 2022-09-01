@@ -1,175 +1,183 @@
 <!doctype html>
 <html>
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/dist/output.css" rel="stylesheet">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/dist/output.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+</head>
 
-  <body class="bg-black font-gilroy scroll-smooth">
+<body class="bg-black font-gilroy scroll-smooth">
+  <nav class="fixed top-0 z-10 flex flex-wrap items-center justify-between w-full p-6" x-data="{ isOpen: false }"
+    @keydown.escape="isOpen = false" :class="{ 'shadow-sm bg-black' : isOpen , 'bg-black' : !isOpen}">
+    <!--Logo etc-->
+    <div class="flex items-center flex-shrink-0 mr-6 text-white">
+      <a class="text-white" href="#">
+        <img src="/assets/img/Logo.svg" class="h-9" alt="scroll down">
+      </a>
+    </div>
 
-    <nav class="border-gray-200 px-2 md:px-4 sm:px-4 py-2.5">
-      <div class="container flex flex-wrap items-center justify-between mx-auto">
-        <a href="#" class="flex items-center">
-          <img src="/assets/img/Logo.svg" class="h-6 mr-3 sm:h-9" alt="Logo">
+    <!--Toggle button (hidden on large screens)-->
+    <button @click="isOpen = !isOpen" type="button"
+      class="block px-2 text-white lg:hidden hover:text-yellow focus:outline-none focus:text-white"
+      :class="{ 'transition transform-180': isOpen }">
+      <svg class="w-6 h-6 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path x-show="isOpen" fill-rule="evenodd" clip-rule="evenodd"
+          d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z" />
+        <path x-show="!isOpen" fill-rule="evenodd"
+          d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
+      </svg>
+    </button>
+
+    <!--Menu-->
+    <div class="flex-grow w-full lg:flex lg:items-center lg:w-auto"
+      :class="{ 'block shadow-3xl': isOpen, 'hidden': !isOpen }" @click.away="isOpen = false" x-show.transition="true">
+      <ul class="items-center justify-end flex-1 pt-6 lg:pt-0 list-reset lg:flex">
+        <li class="mr-3">
+          <a class="inline-block px-4 py-2 no-underline text-yellow" href="#" @click="isOpen = false">Home
+          </a>
+        </li>
+        <li class="mr-3">
+          <a class="inline-block px-4 py-2 text-white no-underline hover:text-yellow hover:text-underline" href="#Works"
+            @click="isOpen = false">Works
+          </a>
+        </li>
+        <li class="mr-3">
+          <a class="inline-block px-4 py-2 text-white no-underline hover:text-yellow hover:text-underline" href="#"
+            @click="isOpen = false">About
+          </a>
+        </li>
+        <li class="mr-3">
+          <a class="inline-block px-4 py-2 text-white no-underline hover:text-yellow hover:text-underline" href="#"
+            @click="isOpen = false">Sharing
+          </a>
+        </li>
+        <li class="mr-3">
+          <a class="inline-block px-4 py-2 text-white no-underline hover:text-yellow hover:text-underline" href="#Footer"
+            @click="isOpen = false">Contact
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+  <section id="hero" class="mt-32">
+    <div class="flex flex-col items-center">
+      <div class="mt-24 text-6xl font-bold text-center text-white">Hi👋🏾, I’m Derrick</div>
+      <div class="mt-4 text-center text-gray">I am a trained engineer 👷🏾‍♂️, failed entrepreneur 📉
+        turned human-centred product designer ,<br> that is interested in creating functional
+        and aesthetically pleasing interfaces.</div>
+      <div class="flex items-center mt-20">
+        <a class="" href="#Works">
+          <img src="/assets/img/arrow_down_circle.svg" class="h-9" alt="scroll down">
         </a>
-        <button data-collapse-toggle="navbar-default" type="button"
-          class="inline-flex items-center p-2 ml-3 text-sm rounded-lg text-yellow md:hidden hover:bg-gray-100 focus:outline-none focus:ring-opacity-0 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="navbar-default" aria-expanded="false">
-          <span class="sr-only">Open main menu</span>
-          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-              clip-rule="evenodd"></path>
-          </svg>
-        </button>
-        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul
-            class="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent">
-            <li>
-              <a href="#"
-                class="block py-2 pl-3 pr-4 text-white hover:text-yellow md:bg-transparent md:text-white md:p-0"
-                aria-current="page">Home</a>
-            </li>
-            <li>
-              <a href="#Works"
-                class="block py-2 pl-3 pr-4 text-white hover:text-yellow md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Work</a>
-            </li>
-            <li>
-              <a href="#"
-                class="block py-2 pl-3 pr-4 text-white hover:text-yellow md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">About</a>
-            </li>
-            <li>
-              <a href="#"
-                class="block py-2 pl-3 pr-4 text-white hover:text-yellow md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Sharing</a>
-            </li>
-            <li>
-              <a href="#Footer"
-                class="block py-2 pl-3 pr-4 text-white hover:text-yellow md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Contact</a>
-            </li>
+      </div>
+    </div>
+  </section>
 
-          </ul>
+  <section id="Works" class="mt-16">
+    <div class="container px-4 py-20 mx-auto">
+      <div class="flex flex-col items-center space-y-32">
+        <div class="flex flex-wrap">
+          <div class="flex flex-col justify-center md:w-1/2">
+            <h3 class="text-3xl font-bold text-white">Designing an interactive <br>onboarding software for 10x lead
+            </h3>
+            <p class="mt-4 text-lg text-gray">
+              Marbleflows is a gamified and interactive user onboarding web application for
+              product engagement, customer education and marketing lead.
+            </p>
+            <a href="https://www.marbleflows.com/" class="pt-4 text-yellow">
+              view product
+            </a>
+          </div>
+          <div class="px-4 ml-auto mr-auto md:w-1/2">
+            <img src="/assets/img/Work_image_1.png" alt="">
+          </div>
+        </div>
+
+        <div class="flex flex-wrap">
+          <div class="flex flex-col justify-center order-first md:w-1/2 md:order-last">
+            <h3 class="text-3xl font-bold text-white">Redesign of Afrikrea shipping experience</h3>
+            <p class="mt-4 text-lg text-gray">
+              Redesign of Afrikrea marketplace to reduce price overcharges for vendors and improve the overall user
+              experience.
+            </p>
+            <a href="https://www.marbleflows.com/" class="pt-4 text-yellow">
+              view product
+            </a>
+          </div>
+          <div class="px-4 ml-auto mr-auto md:w-1/2">
+            <img src="/assets/img/Work_image_2.png" alt="">
+          </div>
+        </div>
+
+        <div class="flex flex-wrap">
+          <div class="flex flex-col justify-center md:w-1/2">
+            <h3 class="text-3xl font-bold text-white">Design of a low carbon future for <br> South Africa- MASA </h3>
+            <p class="mt-4 text-lg text-gray">
+              Educate & convert users to embrace a low carbon future, book a gas refill from the nearest station,
+              track the service, pay with any payment method of their choice and rate certified installers.
+            </p>
+            <a href="#" class="pt-4 text-yellow">
+              view case study
+            </a>
+          </div>
+          <div class="px-4 ml-auto mr-auto md:w-1/2">
+            <img src="/assets/img/Work_image_3..png" alt="">
+          </div>
+        </div>
+
+        <div class="flex flex-wrap">
+          <div class="flex flex-col justify-center order-first md:w-1/2 md:order-last">
+            <h3 class="text-3xl font-bold text-white">TailorsNote- a productivity tool for <br>fashion designers</h3>
+            <p class="mt-4 text-lg text-gray">
+              An innovative way for fashion designers to record measurement details ,
+              manage tasks and customers effectively.
+            </p>
+            <a href="https://play.google.com/store/apps/details?id=com.kauriafrica.tailorsnote"
+              class="pt-4 text-yellow">
+              download application
+            </a>
+          </div>
+          <div class="px-4 ml-auto mr-auto md:w-1/2">
+            <img src="/assets/img/Work_image_4.png" alt="">
+          </div>
         </div>
       </div>
+    </div>
 
-    </nav>
+    <section id="Footer">
+      <div class="flex flex-col items-center mb-5 space-y-10">
+        <hr class="w-10/12 duration-500 border cursor-pointer border-gray border-1 hover:border-yellow" />
+        <h3 class="text-6xl font-bold text-center text-white">Let's Connect</h3>
+        <p class="text-center text-gray">Got any opportunities? or just say hi👋 </p>
 
-    <section id="hero">
-      <div class="flex flex-col items-center">
-        <div class="mt-32 text-6xl font-bold text-center text-white">Hi👋🏾, I’m Derrick</div>
-        <div class="mt-4 text-center text-gray">I am a trained engineer 👷🏾‍♂️, failed entrepreneur 📉
-          turned human-centred product designer ,<br> that is interested in creating functional
-          and aesthetically pleasing interfaces.</div>
-        <div class="flex items-center mt-20">
-          <a class="" href="#Works">
-            <img src="/assets/img/arrow_down_circle.svg" class="h-9" alt="scroll down">
+        <div class="flex space-x-3">
+          <a href="#" class="">
+            <img src="/assets/img/linkedin.svg" class="h-6 sm:h-9" alt="Logo">
+          </a>
+          <a href="#" class="">
+            <img src="/assets/img/github.svg" class="h-6 sm:h-9" alt="Logo">
+          </a>
+          <a href="#" class="">
+            <img src="/assets/img/blog.svg" class="h-6 sm:h-9" alt="Logo">
+          </a>
+          <a href="#" class="">
+            <img src="/assets/img/twitter.svg" class="h-6 sm:h-9" alt="Logo">
+          </a>
+          <a href="#" class="">
+            <img src="/assets/img/insta.svg" class="h-6 sm:h-9" alt="Logo">
           </a>
         </div>
+
+
       </div>
     </section>
+  </section>
 
-    <section id="Works">
-      <div class="container px-4 py-20 mx-auto mt-32">
-        <div class="flex flex-col items-center space-y-32">
-          <div class="flex flex-wrap">
-            <div class="flex flex-col justify-center md:w-1/2">
-              <h3 class="text-3xl font-bold text-white">Designing an interactive <br>onboarding software for 10x lead
-              </h3>
-              <p class="mt-4 text-lg text-gray">
-                Marbleflows is a gamified and interactive user onboarding web application for
-                product engagement, customer education and marketing lead.
-              </p>
-              <a href="https://www.marbleflows.com/" class="pt-4 text-yellow">
-                view product
-              </a>
-            </div>
-            <div class="md:w-1/2 px-4 ml-auto mr-auto">
-              <img src="/assets/img/Work_image_1.png" alt="">
-            </div>
-          </div>
-
-          <div class="flex flex-wrap">
-            <div class="flex flex-col justify-center md:w-1/2 order-first md:order-last">
-              <h3 class="text-3xl font-bold text-white">Redesign of Afrikrea shipping experience</h3>
-              <p class="mt-4 text-lg text-gray">
-                Redesign of Afrikrea marketplace to reduce price overcharges for vendors and improve the overall user
-                experience.
-              </p>
-              <a href="https://www.marbleflows.com/" class="pt-4 text-yellow">
-                view product
-              </a>
-            </div>
-            <div class="md:w-1/2 px-4 ml-auto mr-auto">
-              <img src="/assets/img/Work_image_2.png" alt="">
-            </div>
-          </div>
-
-          <div class="flex flex-wrap">
-            <div class="flex flex-col justify-center md:w-1/2">
-              <h3 class="text-3xl font-bold text-white">Design of a low carbon future for <br> South Africa- MASA </h3>
-              <p class="mt-4 text-lg text-gray">
-                Educate & convert users to embrace a low carbon future, book a gas refill from the nearest station,
-                track the service, pay with any payment method of their choice and rate certified installers.
-              </p>
-              <a href="#" class="pt-4 text-yellow">
-                view case study
-              </a>
-            </div>
-            <div class="md:w-1/2 px-4 ml-auto mr-auto">
-              <img src="/assets/img/Work_image_3..png" alt="">
-            </div>
-          </div>
-
-          <div class="flex flex-wrap">
-            <div class="flex flex-col justify-center md:w-1/2 order-first md:order-last">
-              <h3 class="text-3xl font-bold text-white">TailorsNote- a productivity tool for <br>fashion designers</h3>
-              <p class="mt-4 text-lg text-gray">
-                An innovative way for fashion designers to record measurement details ,
-                manage tasks and customers effectively.
-              </p>
-              <a href="https://play.google.com/store/apps/details?id=com.kauriafrica.tailorsnote"
-                class="pt-4 text-yellow">
-                download application
-              </a>
-            </div>
-            <div class="md:w-1/2 px-4 ml-auto mr-auto">
-              <img src="/assets/img/Work_image_4.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <section id="Footer">
-        <div class="flex flex-col items-center space-y-10 mb-5">
-          <hr class="duration-500 cursor-pointer border w-10/12 border-gray border-1 hover:border-yellow" />
-          <h3 class="text-6xl font-bold text-center text-white">Let's Connect</h3>
-          <p class="text-center text-gray">Got any opportunities? or just say hi👋 </p>
-
-          <div class="flex space-x-3">
-            <a href="#" class="">
-              <img src="/assets/img/linkedin.svg" class="h-6 sm:h-9" alt="Logo">
-            </a>
-            <a href="#" class="">
-              <img src="/assets/img/linkedin.svg" class="h-6 sm:h-9" alt="Logo">
-            </a>
-            <a href="#" class="">
-              <img src="/assets/img/linkedin.svg" class="h-6 sm:h-9" alt="Logo">
-            </a>
-            <a href="#" class="">
-              <img src="/assets/img/linkedin.svg" class="h-6 sm:h-9" alt="Logo">
-            </a>
-            <a href="#" class="">
-              <img src="/assets/img/linkedin.svg" class="h-6 sm:h-9" alt="Logo">
-            </a>
-          </div>
-
-
-        </div>
-      </section>
-    </section>
-
-  </body>
+</body>
 
 </html>
