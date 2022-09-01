@@ -13,7 +13,7 @@
         @keydown.escape="isOpen = false" :class="{ 'shadow-sm bg-black' : isOpen , 'bg-black' : !isOpen}">
         <!--Logo etc-->
         <div class="flex items-center flex-shrink-0 mr-6 text-white">
-            <a class="text-white" href="#">
+            <a class="text-white" href="/index.html">
                 <img src="/assets/img/Logo.svg" class="h-9" alt="scroll down">
             </a>
         </div>
@@ -36,7 +36,8 @@
             x-show.transition="true">
             <ul class="items-center justify-end flex-1 pt-6 lg:pt-0 list-reset lg:flex">
                 <li class="mr-3">
-                    <a class="inline-block px-4 py-2 no-underline text-yellow" href="#" @click="isOpen = false">Home
+                    <a class="inline-block px-4 py-2 no-underline text-yellow" href="/index.html"
+                        @click="isOpen = false">Home
                     </a>
                 </li>
                 <li class="mr-3">
@@ -46,7 +47,7 @@
                 </li>
                 <li class="mr-3">
                     <a class="inline-block px-4 py-2 text-white no-underline hover:text-yellow hover:text-underline"
-                        href="#" @click="isOpen = false">About
+                        href="/about.html" @click="isOpen = false">About
                     </a>
                 </li>
                 <li class="mr-3">
@@ -63,85 +64,46 @@
         </div>
     </nav>
 
-
-    <section id="AboutMe" class="mt-16">
-        <div class="container px-4 py-20 mx-auto">
-            <div class="flex flex-col items-center space-y-32">
-                <div class="flex flex-wrap">
-                    <div class="flex flex-col justify-center md:w-1/2">
-                        <h3 class="text-3xl font-bold text-white">About Me</h3>
-                        <p class="mt-4 text-lg text-gray">
-                            I am a UX/Product Designer solving human needs by creating usable and aesthetically pleasing
-                            interfaces to enhance human experiences and achieve business success. I focus on research
-                            and data driven approaches to create end to end designs that is true to the product's goals
-                            and the visual experience.
-
-                            With 4 years of industry experience within the Edtech, E-commerce/Marketplace and Software
-                            as a Service(SaaS) domain.
-                        </p>
-                        <a href="https://www.marbleflows.com/" class="pt-4 text-yellow">
-                            Feel free to contact me via:
-                        </a>
-                    </div>
-                    <div class="px-4 ml-auto mr-auto md:w-1/2">
-                        <img src="/assets/img/dee.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="MyStory" class="mt-8">
-        <div class="container px-4 py-20 mx-auto">
-            <div class="flex flex-col items-center space-y-32">
-                <div class="flex flex-wrap">
-                    <div class="flex flex-col justify-center md:w-1/2">
-                        <h3 class="text-3xl font-bold text-white">My Story</h3>
-                        <p class="mt-4 text-lg text-gray">
-                            was born and raised in Ghana 🇬🇭, currently staying in Accra. I graduated from Takoradi
-                            Tehnical University where I studied Electrical/ Electronics Engineering. After graduation I
-                            did Research and teaching assistant job for sometime and also started couple of businesses
-                            which I failed to scale. I then decided to learn a new skill and transitioned to Digital
-                            Product Design and Web development. <br> In my spare time, I enjoy traveling, listening to
-                            music, mobile photography, meeting new
-                            people, and teaching
-                        </p>
-                        <a href="https://ambitious.com.gh/my-life-after-uni-i-worked-for-hopin-academy-in-tamale-and-i-got-that-job-on-whatsapp-derrick-amenuve/"
-                            class="pt-4 text-yellow">
-                            Read more about my journey
-                        </a>
-                    </div>
-                    <div class="px-4 ml-auto mr-auto md:w-1/2">
-                        <img src="/assets/img/dee.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="DesignMethod" class="mt-8">
+    <section id="KnowledgeSharing" class="mt-8">
         <div class="container px-4 py-20 mx-auto">
             <div class="flex flex-col items-center space-y-32">
                 <div class="flex flex-wrap">
                     <div class="flex flex-col md:w-1/3">
-                        <h3 class="text-3xl font-bold text-white">Design Method</h3>
+                        <h3 class="text-3xl font-bold text-white">Knowledge Sharing</h3>
                         <p class="mt-4 text-lg text-gray">
-                            I approach work with a strong philosphy of ethics-first decision-making. To avoid designing
-                            with bias and really improve the user experience, I focus on getting get to know people I
-                            design for and make decisions from data.
+                            One of the ways that I’ve been trying to better help people in the creative communities is
+                            sharing my knowledge via webinars or in-person workshops at Rails Girls , HOPin Academy,
+                            Ispace , Nplec Foundation, etc.
 
-                            I focus on understanding the problem, brainstorming and thinking of different solutions,
-                            test the design solutions and constantly iterate on it.
-
-
-                            ​
+                            I do peer to peer sessions to learn from my colleagues and part of the UX Ghana & Friends of
+                            Figma communities. I hope to start mentoring sessions on Adplist in the future.
                         </p>
-
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section id="KnowledgeSharing" class="mt-8">
+        <div class="container px-4 py-20 mx-auto">
+            <div class="flex flex-col space-y-32">
+                <div class="flex flex-wrap">
+                    <div class="flex flex-col ">
+                        <h3 class="text-3xl font-bold text-white">Recent Articles</h3>
+                        <p>
+                            <a class="mt-4 text-lg text-white underline decoration-yellow"href="https://dev.to/godsloveady/there-is-not-only-one-right-way-4dg6"> There is not only one right way</a>
+                            <a class="mt-4 text-lg text-white underline decoration-yellow"href="https://dev.to/godsloveady/there-is-not-only-one-right-way-4dg6"> There is not only one right way</a> 
+                            <a class="mt-4 text-lg text-white underline decoration-yellow"href="https://dev.to/godsloveady/there-is-not-only-one-right-way-4dg6"> There is not only one right way</a>  
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
 
 
     <section id="Footer">
@@ -167,6 +129,8 @@
                     <img src="/assets/img/insta.svg" class="h-6 sm:h-9" alt="Instagram">
                 </a>
             </div>
+
+
         </div>
     </section>
 
